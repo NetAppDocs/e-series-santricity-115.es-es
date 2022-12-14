@@ -1,0 +1,88 @@
+---
+permalink: sm-storage/change-configuration-settings-for-a-volume-group.html 
+sidebar: sidebar 
+keywords: change, raid level, volume group 
+summary: Es posible cambiar el nivel de RAID de un grupo de volúmenes para tener en cuenta las necesidades de rendimiento de las aplicaciones que acceden al grupo de volúmenes. Esta operación cambia el nivel de RAID de un grupo de volúmenes sin afectar las operaciones de I/o de datos 
+---
+= Cambiar el nivel de RAID de un grupo de volúmenes
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible cambiar el nivel de RAID de un grupo de volúmenes para tener en cuenta las necesidades de rendimiento de las aplicaciones que acceden al grupo de volúmenes. Esta operación cambia el nivel de RAID de un grupo de volúmenes sin afectar las operaciones de I/o de datos
+
+.Antes de empezar
+* El grupo de volúmenes debe tener el estado óptima.
+* Se debe contar con suficiente capacidad en el grupo de volúmenes como para convertir al nivel de RAID nuevo.
+* No es posible cambiar el nivel de RAID de un pool. System Manager configura automáticamente los pools como RAID 6.
+
+
+.Acerca de esta tarea
+No es posible cancelar esta operación una vez iniciada. Los datos seguirán estando disponibles durante esta operación.
+
+Más información acerca de los niveles de RAID
+
+[cols="2*"]
+|===
+| Nivel de RAID | Descripción 
+
+
+ a| 
+Segmentación RAID 0
+ a| 
+Ofrece alto rendimiento, pero no proporciona redundancia de datos. Si una unidad única falla en el grupo de volúmenes, todos los volúmenes asociados fallarán y se perderán todos los datos.
+
+Un grupo RAID de segmentación combina dos o más unidades en una unidad lógica grande.
+
+
+
+ a| 
+Mirroring RAID 1
+ a| 
+Ofrece alto rendimiento y la mejor disponibilidad de datos, y es adecuado para el almacenamiento de datos confidenciales a nivel corporativo o personal.
+
+Para proteger los datos, crea reflejos del contenido de una unidad en una segunda unidad en la pareja reflejada. Proporciona protección en caso de fallo de una unidad única.
+
+
+
+ a| 
+Segmentación/duplicación de RAID 10
+ a| 
+Proporciona una combinación de RAID 0 (segmentación) y RAID 1 (mirroring), y se logra cuando se seleccionan cuatro o más unidades.
+
+RAID 10 es adecuado para aplicaciones transaccionales de alto volumen, como una base de datos, que requieren alto rendimiento y tolerancia a fallos.
+
+
+
+ a| 
+RAID 5
+ a| 
+Óptimo para entornos con múltiples usuarios (como una base de datos o almacenamiento de sistema de archivos) donde el tamaño de I/o típico es pequeño y hay una proporción alta de actividad de lectura.
+
+
+
+ a| 
+RAID 6
+ a| 
+Óptimo para entornos que requieren una protección contra redundancia superior a la de RAID 5, pero que no requieren alto rendimiento de escritura.
+
+|===
+RAID 3 solo se puede asignar a grupos de volúmenes con interfaz de línea de comandos (CLI).
+
+.Pasos
+. Seleccione *menú:almacenamiento[Pools y grupos de volúmenes]*.
+. Seleccione el grupo de volúmenes que desea editar y haga clic en *Ver/editar configuración*.
++
+Se muestra el cuadro de diálogo Configuración del grupo de volúmenes.
+
+. Seleccione el nivel RAID en la lista desplegable y, a continuación, haga clic en *Guardar*.
++
+Se muestra un cuadro de diálogo de confirmación si se reduce la capacidad, se pierde la redundancia de volumen o se pierde la protección contra pérdida de bandeja/cajón como resultado del cambio de nivel de RAID. Seleccione *Sí* para continuar; de lo contrario, haga clic en *no*.
+
+
+
+.Resultados
+Cuando cambia el nivel de RAID de un grupo de volúmenes, System Manager cambia los niveles de RAID de todos los volúmenes que componen el grupo de volúmenes. Es posible que el rendimiento se vea levemente afectado durante la operación.

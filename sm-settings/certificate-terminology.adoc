@@ -1,0 +1,81 @@
+---
+permalink: sm-settings/certificate-terminology.html 
+sidebar: sidebar 
+keywords: certificate, terminology 
+summary: Conozca la forma en que los términos de certificados se aplican a su cabina de almacenamiento. 
+---
+= Terminología de certificados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Conozca la forma en que los términos de certificados se aplican a su cabina de almacenamiento.
+
+|===
+| Duración | Descripción 
+
+
+ a| 
+APROX
+ a| 
+Una entidad de certificación (CA) es una entidad de confianza que emite documentos electrónicos, denominados certificados digitales, para la seguridad de Internet. Estos certificados identifican a los propietarios de sitios web y, de esta manera, permiten conexiones seguras entre clientes y servidores.
+
+
+
+ a| 
+CSR
+ a| 
+Una solicitud de firma de certificación (CSR) es un mensaje que envía un solicitante a una entidad de certificación (CA). La CSR valida la información que requiere la CA para emitir un certificado.
+
+
+
+ a| 
+Certificado
+ a| 
+Un certificado identifica al propietario de un sitio con el fin de brindar seguridad, para evitar que atacantes se hagan pasar por los propietarios del sitio. El certificado tiene información acerca del propietario del sitio y la identidad de la entidad de confianza que certifica (firma) esta información.
+
+
+
+ a| 
+Certificado de cliente
+ a| 
+En la gestión de claves de seguridad, un certificado de cliente valida las controladoras de la cabina de almacenamiento a fin de que el servidor de gestión de claves pueda confiar en sus direcciones IP.
+
+
+
+ a| 
+Certificado de servidor de gestión de claves
+ a| 
+En la gestión de claves de seguridad, un certificado de servidor de gestión de claves valida el servidor a fin de que la cabina de almacenamiento pueda confiar en su dirección IP.
+
+
+
+ a| 
+Certificado de gestión
+ a| 
+Una entidad de certificación (CA) aprueba un certificado de gestión para permitir el acceso seguro a la aplicación web. También se conoce como "certificado firmado".
+
+
+
+ a| 
+Servidor OCSP
+ a| 
+El servidor de protocolo de estado de certificado en línea (OCSP) determina si la entidad de certificación (CA) ha revocado algún certificado antes de su fecha de vencimiento programada y bloquea el acceso del usuario a un servidor si se ha revocado el certificado.
+
+
+
+ a| 
+Certificado autofirmado
+ a| 
+Los certificados autofirmados se cargan de forma previa en las controladoras. Si la conexión de sitio es autofirmada, se abre un mensaje de advertencia antes de pasar a la aplicación web.
+
+
+
+ a| 
+Certificado de confianza
+ a| 
+Un certificado de confianza de una entidad de certificación (CA) es un certificado conocido ubicado en la parte superior de la jerarquía de certificados. También se conoce como "certificado raíz".
+
+|===

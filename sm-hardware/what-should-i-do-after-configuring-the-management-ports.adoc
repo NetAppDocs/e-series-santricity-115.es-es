@@ -1,0 +1,24 @@
+---
+permalink: sm-hardware/what-should-i-do-after-configuring-the-management-ports.html 
+sidebar: sidebar 
+keywords: configure, management, ports 
+summary: Si cambió la dirección IP de la cabina de almacenamiento, es posible que desee actualizar la vista de cabina global en SANtricity Unified Manager. 
+---
+= ¿Qué debo hacer luego de configurar los puertos de gestión?
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si cambió la dirección IP de la cabina de almacenamiento, es posible que desee actualizar la vista de cabina global en SANtricity Unified Manager.
+
+Para actualizar la vista de cabina global en Unified Manager, abra la interfaz y vaya al menú:gestionar[detectar].
+
+Si también está usando SANtricity Storage Manager para la gestión de cabinas global, vaya a Enterprise Management Window (EMW) y vuelva a añadir la cabina de almacenamiento a la lista de EMW:
+
+. Localice la cabina en la lista de cabinas de almacenamiento de EMW.
+. Quite la cabina de la lista.
+. Con la dirección IP nueva, vuelva a añadir la cabina de almacenamiento a la lista de EMW.
+

@@ -1,0 +1,44 @@
+---
+permalink: sm-settings/step-3-import-signed-certificates-for-the-controllers.html 
+sidebar: sidebar 
+keywords: import, management, certificate, controllers 
+summary: 'Después de importar la cadena de certificados de confianza, es posible importar un archivo de certificado de gestión (firmado) para cada controladora de la cabina de almacenamiento.' 
+---
+= Importe un certificado de gestión para controladoras
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de importar la cadena de certificados de confianza, es posible importar un archivo de certificado de gestión (firmado) para cada controladora de la cabina de almacenamiento.
+
+.Antes de empezar
+* Debe iniciar sesión con un perfil de usuario que cuente con permisos de administración de seguridad. De lo contrario, no se mostrarán las funciones de certificación.
+* Se importaron los certificados de confianza.
+* La CA devolvió un archivo de certificado de gestión para cada controladora.
+* Los archivos de certificado de gestión están disponibles en el sistema local.
+
+
+.Acerca de esta tarea
+En esta tarea, se describe cómo cargar archivos de certificado de gestión para la autenticación de la controladora.
+
+.Pasos
+. Seleccione MENU:Settings[Certificates].
+. En la ficha *Administración de matrices*, seleccione *Importar*.
++
+Se abre un cuadro de diálogo para importar los archivos de certificado.
+
+. Haga clic en *examinar* para seleccionar el archivo del controlador A. Si hay dos controladores, haga clic en el segundo botón *examinar* para seleccionar el archivo del controlador B.
++
+Se muestran los nombres de los archivos en el cuadro de diálogo.
+
+. Haga clic en *Importar*.
++
+Los archivos se cargan y validan.
+
+
+
+.Resultados
+La sesión finaliza automáticamente. Debe volver a iniciar sesión para que los certificados entren en vigencia. Cuando inicia sesión nuevamente, se utiliza el nuevo certificado firmado por la CA en la sesión.

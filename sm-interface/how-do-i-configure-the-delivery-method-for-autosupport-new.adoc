@@ -1,0 +1,17 @@
+---
+permalink: sm-interface/how-do-i-configure-the-delivery-method-for-autosupport-new.html 
+sidebar: sidebar 
+keywords: configure, delivery, method , autosupport 
+summary: Para acceder a las tareas de configuración de los métodos de entrega de AutoSupport, vaya a Support > Support Center y, luego, haga clic en la pestaña AutoSupport. 
+---
+= ¿Cómo se configura el método de entrega para AutoSupport?
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para acceder a las tareas de configuración de los métodos de entrega de AutoSupport, vaya al menú:Support[Support Center] y, luego, haga clic en la pestaña AutoSupport.
+
+Se admiten los siguientes protocolos: HTTPS, HTTP y SMTP.

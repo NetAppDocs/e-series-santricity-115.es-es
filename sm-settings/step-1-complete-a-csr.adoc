@@ -1,0 +1,69 @@
+---
+permalink: sm-settings/step-1-complete-a-csr.html 
+sidebar: sidebar 
+keywords: complete, ca certificate, signing, request, csr, controllers 
+summary: 'Para recibir un certificado de una entidad de certificación (CA) para las controladoras de la cabina de almacenamiento, primero se debe generar un archivo de solicitud de firma de certificación (CSR) para cada controladora de la cabina de almacenamiento.' 
+---
+= Complete una solicitud de firma de certificación (CSR) de una CA para las controladoras
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para recibir un certificado de una entidad de certificación (CA) para las controladoras de la cabina de almacenamiento, primero se debe generar un archivo de solicitud de firma de certificación (CSR) para cada controladora de la cabina de almacenamiento.
+
+.Antes de empezar
+* Debe iniciar sesión con un perfil de usuario que cuente con permisos de administración de seguridad. De lo contrario, no se mostrarán las funciones de certificación.
+
+
+.Acerca de esta tarea
+En esta tarea, se describe cómo generar los archivos .CSR (solicitudes de firma de certificación) que se envían a una CA para recibir certificados de gestión firmados de las controladoras. Se debe proporcionar información sobre la organización, más la dirección IP o el nombre DNS de las controladoras. Durante esta tarea, se genera un archivo .CSR si solo existe una controladora en la cabina de almacenamiento y dos archivos .CSR si existen dos controladoras.
+
+.Pasos
+. Seleccione MENU:Settings[Certificates].
+. En la ficha *Gestión de matrices*, seleccione *completar CSR*.
++
+[NOTE]
+====
+Si aparece un cuadro de diálogo que le pide que acepte un certificado autofirmado para el segundo controlador, haga clic en *Aceptar certificado autofirmado* para continuar.
+
+====
+. Introduzca la siguiente información y, a continuación, haga clic en *Siguiente*:
++
+** *Organización* -- el nombre completo y legal de su empresa u organización. Incluya sufijos, como Inc. O Corp
+** *Unidad organizativa (opcional)* -- la división de su organización que maneja el certificado.
+** *Ciudad/localidad* -- Ciudad en la que se encuentra la matriz de almacenamiento o el negocio.
+** *Estado/Región (opcional)* -- el estado o región donde está ubicada la matriz de almacenamiento o el negocio.
+** *Código ISO de país*: Código ISO (Organización Internacional de Normalización) de dos dígitos de su país, por ejemplo, US.
+
+
++
+[CAUTION]
+====
+Algunos campos pueden autocompletarse con la información adecuada, como la dirección IP de la controladora. No cambie los valores autocompletados a menos que esté seguro de que son incorrectos. Por ejemplo, si todavía no ha completado una CSR, la dirección IP de la controladora se establecerá en "'localhost'". En ese caso, deberá cambiar «'localhost'» por el nombre DNS o la dirección IP del controlador.
+
+====
+. Verifique o introduzca la siguiente información acerca de la controladora A en su cabina de almacenamiento:
++
+** *Controller un nombre común* -- la dirección IP o el nombre DNS del controlador A se muestran de manera predeterminada. Compruebe que la dirección sea correcta; debe coincidir exactamente con lo que escribe para acceder a System Manager en el explorador.
+** *Controller a Alternate IP address* -- Si el nombre común es una dirección IP, puede opcionalmente escribir cualquier dirección IP adicional o alias para el controlador A. Si va a introducir varios datos, use un formato delimitado por comas.
+** *Nombre DNS alternativo del controlador a* -- Si el nombre común es un nombre DNS, introduzca cualquier nombre DNS adicional para el controlador A. Si va a introducir varios datos, use un formato delimitado por comas. Si no hay nombres DNS alternativos, pero especificó un nombre DNS en el primer campo, copie ese nombre aquí. Si la cabina de almacenamiento sólo tiene una controladora, el botón *Finalizar* estará disponible. Si la cabina de almacenamiento tiene dos controladores, el botón *Siguiente* estará disponible.
+
+
++
+[NOTE]
+====
+No haga clic en el enlace *Omitir este paso* cuando cree inicialmente una solicitud CSR. El enlace se proporciona para situaciones de recuperación de errores. En raras ocasiones, una solicitud CSR puede generar errores en una controladora, pero no en la otra. Este enlace permite omitir el paso para crear una solicitud CSR en la controladora A si ya está definida, y continuar hacia el siguiente paso para volver a crear una solicitud CSR en la controladora B.
+
+====
+. Si sólo hay un controlador, haga clic en *Finalizar*. Si hay dos controladores, haga clic en *Siguiente* para introducir información para el controlador B (igual que el anterior) y, a continuación, haga clic en *Finalizar*.
++
+Para una sola controladora, se descarga un archivo .CSR en el sistema local. En el caso de controladoras dobles, se descargan dos archivos .CSR. La ubicación de la carpeta de la descarga depende del explorador.
+
+. Envíe el o los archivos .CSR a la CA.
+
+
+.Después de terminar
+Cuando reciba los certificados digitales, importe los archivos de certificado adecuados que le envió la CA.

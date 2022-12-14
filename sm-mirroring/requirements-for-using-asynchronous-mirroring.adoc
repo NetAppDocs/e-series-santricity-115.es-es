@@ -1,0 +1,77 @@
+---
+permalink: sm-mirroring/requirements-for-using-asynchronous-mirroring.html 
+sidebar: sidebar 
+keywords: requirements, use, asynchronous, mirroring 
+summary: Si planea utilizar la función Asynchronous Mirroring, tenga en cuenta los siguientes requisitos. 
+---
+= Requisitos para mirroring asíncrono
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si planea utilizar la función Asynchronous Mirroring, tenga en cuenta los siguientes requisitos.
+
+
+
+== Unified Manager de SANtricity
+
+Para utilizar el mirroring asíncrono, deben configurarse las siguientes condiciones:
+
+* El proxy de servicios web está en ejecución.
+* SANtricity Unified Manager se ejecuta en el host local a través de una conexión HTTPS.
+* Cada controladora en la cabina primaria y la cabina secundaria debe tener un puerto Ethernet de gestión configurado y debe estar conectada a la red.
+* SANtricity Unified Manager muestra certificaciones SSL válidas para la cabina de almacenamiento. Es posible aceptar un certificado autofirmado o instalar una certificación de seguridad propia con Unified Manager. Para hacerlo, debe navegar hasta MENU:Certificate[Gestión de certificados].
+* SANtricity System Manager se ejecuta desde un Unified Manager.
+* Debe haber detectado las dos cabinas de almacenamiento entre las que desea reflejar datos. A continuación, desde Unified Manager, debe seleccionar la cabina de almacenamiento del volumen primario y hacer clic en *Iniciar* para abrir la instancia de SANtricity System Manager basada en explorador.
+
+
+
+
+== Cabinas de almacenamiento
+
+* Debe tener dos cabinas de almacenamiento.
+* Cada controladora en la cabina primaria y la cabina secundaria debe tener un puerto Ethernet de gestión configurado y debe estar conectada a la red.
+* Cada cabina de almacenamiento debe tener dos controladoras.
+* Las cabinas de almacenamiento de los volúmenes primario y secundario pueden ejecutar versiones de sistemas operativos diferentes. La versión mínima admitida es 7.84.
+* Debe conocer la contraseña de las cabinas de almacenamiento remota y local.
+* Debe tener suficiente capacidad libre en la cabina de almacenamiento remota para crear un volumen secundario mayor o igual que el volumen primario que desea reflejar.
+* Las cabinas de almacenamiento local y remota deben estar conectadas a través de una interfaz de estructura Fibre Channel o iSCSI.
+
+
+
+
+== Configuraciones de hardware compatibles y requisitos de conectividad
+
+* El mirroring asíncrono solo es compatible con las configuraciones de hardware de controladora doble.
+* La comunicación para la función Asynchronous Mirroring solo se admite en las controladoras con puertos de host iSCSI o Fibre Channel (FC). La función utiliza uno de los puertos de host de cada controladora en la cabina de almacenamiento local y la cabina de almacenamiento remota.
+* Si las cabinas de almacenamiento se conectan mediante conexiones iSCSI y FC, es posible reflejar un grupo de reflejos asíncronos mediante FC y otro grupo de reflejos asíncronos mediante iSCSI.
+
+
+
+
+== Candidatos de volumen reflejado
+
+* El nivel de RAID, los parámetros de almacenamiento en caché y el tamaño de los segmentos pueden ser diferentes en los volúmenes primario y secundario de una pareja reflejada asíncrona.
+* El volumen secundario deber tener al menos el tamaño del volumen primario.
+* Un volumen puede participar solo en una relación de reflejo.
+
+
+
+
+== Capacidad reservada
+
+* Se requiere un volumen de capacidad reservada en el volumen primario y en el volumen secundario de una pareja reflejada para registrar la información de escritura que se utiliza en la recuperación de los restablecimientos de la controladora y otras interrupciones temporales.
+* Debido a que tanto el volumen primario como el volumen secundario de una pareja reflejada requieren capacidad reservada adicional, debe asegurarse de contar con capacidad libre disponible en ambas cabinas de almacenamiento de la relación de reflejo.
+
+
+
+
+== Función Drive Security
+
+* Si utiliza unidades compatibles con la función de seguridad, tanto el volumen primario como el secundario deben tener una configuración de seguridad compatible. Esta restricción no se aplica; por lo tanto, debe verificarlo por su cuenta.
+* Si utiliza unidades compatibles con la función de seguridad, tanto el volumen primario como el secundario deberían usar el mismo tipo de unidad. Esta restricción no se aplica; por lo tanto, debe verificarlo por su cuenta.
+* Si utiliza Data Assurance (DA), el volumen primario y el secundario deben tener la misma configuración DE DA.
+

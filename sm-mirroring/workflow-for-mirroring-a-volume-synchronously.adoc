@@ -1,0 +1,16 @@
+---
+permalink: sm-mirroring/workflow-for-mirroring-a-volume-synchronously.html 
+sidebar: sidebar 
+keywords: workflow, mirror, volume, synchronously 
+summary: En SANtricity System Manager, es posible reflejar un volumen de manera síncrona mediante los pasos siguientes. 
+---
+= Flujo de trabajo para reflejar un volumen de forma síncrona
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En SANtricity System Manager, es posible reflejar un volumen de manera síncrona mediante los pasos siguientes.
+
+image::../media/sam1130-flw-sync-create.gif[sam1130 sincronización flw crear]

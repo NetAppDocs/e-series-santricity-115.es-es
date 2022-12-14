@@ -1,0 +1,102 @@
+---
+permalink: sm-mirroring/considerations-for-setting-up-asynchronous-mirroring.html 
+sidebar: sidebar 
+keywords: considerations, setting up, asynchronous, mirror 
+summary: Para garantizar una configuración y una configuración correctas, tenga en cuenta algunas consideraciones clave como parte de la planificación. 
+---
+= Aspectos que se deben tener en cuenta al configurar el mirroring asíncrono
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para garantizar una configuración y una configuración correctas, tenga en cuenta algunas consideraciones clave como parte de la planificación.
+
+
+
+== Ejecute Unified Manager de SANtricity
+
+* Cada controladora en la cabina primaria y la cabina secundaria debe tener un puerto Ethernet de gestión configurado y debe estar conectada a la red.
+* El mirroring asíncrono se configura al abrir Unified Manager de SANtricity. Toda relación de mirroring requiere que se detecten tanto el sistema de almacenamiento local como el remoto, y que se muestren en Unified Manager de SANtricity.
+* Debe tener instalado SANtricity Unified Manager basado en explorador y haber detectado las dos cabinas de almacenamiento entre las que desea reflejar datos. A continuación, desde Unified Manager, debe seleccionar la cabina de almacenamiento del volumen primario y hacer clic en Iniciar para abrir la instancia de SANtricity System Manager basada en explorador.
+
+
+
+
+== Activación
+
+Antes de usar el mirroring asíncrono, es necesario activar esta función en cada cabina de almacenamiento que participa en las operaciones de mirroring. La activación se debe realizar por medio de la interfaz de línea de comandos, la API de REST o la interfaz gráfica de usuario (GUI) de gestión.
+
+* En los sistemas gestionados por System Manager de SANtricity (E2800, E5700, EF570), no se requiere un paso de activación aparte; la activación se produce en segundo plano mientras se configuran los grupos o las parejas de reflejos.
+* Para los sistemas gestionados por SANtricity Storage Manager (E2700, E5600, EF560), la función de mirroring asíncrono se activa mediante la GUI en el sistema heredado que no está gestionado por SANtricity System Manager. Si se utiliza iSCSI para mirroring asíncrono, no se necesita el paso de activación.
+
+
+
+
+== Certificados de servicios web y exploradores recomendados
+
+* *Certificados de confianza*
++
+Si el mirroring involucra sistemas gestionados por SANtricity System Manager, se recomienda importar los certificados de confianza para los servicios web en la instancia de SANtricity Unified Manager que permite la autenticación de los sistemas de almacenamiento con el servidor web. Los pasos en SANtricity Unified Manager son los siguientes:
+
++
+.. Genere una solicitud de firma de certificación (CSR) en la máquina donde está instalado SANtricity Unified Manager.
+.. Envíe la CSR a una entidad de certificación (CA).
+.. Cuando la CA envíe los certificados firmados, importe esos certificados a Unified Manager.
+
+
+* *Certificados autofirmados*
++
+Además, se pueden utilizar certificados autofirmados. Si el administrador intenta configurar una operación de mirroring sin importar los certificados firmados, SANtricity System Manager muestra un cuadro de diálogo de error que permite al administrador aceptar el certificado autofirmado. Si este fuera el caso, se recomienda usar la versión más reciente de los exploradores Chrome o Firefox.
+
++
+Es posible aceptar un certificado autofirmado o instalar una certificación de seguridad propia con Unified Manager. Para hacerlo, debe navegar hasta MENU:Certificate[Gestión de certificados].
+
+
+
+
+
+== Conexiones admitidas
+
+En el mirroring asíncrono, se pueden usar las conexiones FC o iSCSI, o ambas, para la comunicación entre los sistemas de almacenamiento local y remoto. Cuando se crea un grupo de coherencia de reflejos (también denominado grupo de reflejos asíncronos), el administrador puede seleccionar FC o iSCSI para ese grupo si ambas conexiones se establecen en la cabina de almacenamiento remota. No existe conmutación al nodo de respaldo de un tipo de canal al otro.
+
+En el mirroring asíncrono, se utilizan los puertos de I/o del host de la cabina de almacenamiento para transferir los datos reflejados del área primaria a la secundaria.
+
+* *Duplicación a través de una interfaz Fibre Channel (FC)*
++
+Cada controladora de la cabina de almacenamiento dedica su puerto de host FC numerado más alto a las operaciones de mirroring.
+
++
+Si la controladora tiene tanto puertos base FC como puertos FC de tarjeta de interfaz del host (HIC), en la HIC se encuentra el puerto numerado más alto. Se cerrará la sesión de cualquier host que haya iniciado sesión en el puerto dedicado y no se aceptará ninguna solicitud de inicio de sesión de host. Solo se aceptan las solicitudes I/o en este puerto de las controladoras que participan en las operaciones de mirroring.
+
++
+Los puertos de mirroring dedicados deben pertenecer al entorno estructural de FC que sea compatible con el servicio de directorio y las interfaces del servicio de nombres. En particular, FC-AL y punto a punto no son opciones de conectividad compatibles entre las controladoras que participan en las relaciones de mirroring.
+
+* *Duplicación a través de una interfaz iSCSI*
++
+A diferencia de FC, iSCSI no requiere un puerto dedicado. Cuando se utiliza el mirroring asíncrono en entornos iSCSI, no es necesario dedicar ninguno de los puertos iSCSI front-end de la cabina de almacenamiento para usarlos con mirroring asíncrono; esos puertos se comparten tanto para las conexiones de tráfico de reflejos asíncronos como de I/o de host a cabina.
+
++
+La controladora conserva una lista de los sistemas de almacenamiento remoto con los cuales el iniciador de iSCSI intenta establecer una sesión. El primer puerto que logra establecer una conexión iSCSI se utiliza para todas las comunicaciones subsiguientes con esa cabina de almacenamiento remota. Si no se produce la comunicación, se intenta una nueva sesión con todos los puertos disponibles.
+
++
+Los puertos iSCSI se configuran en el nivel de la cabina, puerto por puerto. La comunicación entre controladoras para la mensajería de configuración y la transferencia de datos utiliza la configuración global, lo que incluye:
+
++
+** VLAN: Tanto los sistemas locales como los remotos deben tener el mismo valor de VLAN para comunicarse
+** Puertos de escucha iSCSI
+** Tramas gigantes
+** Prioridad para Ethernet
+
+
++
+[NOTE]
+====
+La comunicación entre las controladoras iSCSI debe utilizar un puerto con conexión a un host y no el puerto Ethernet de gestión.
+
+====
+
+
+En el mirroring asíncrono, se utilizan los puertos de I/o del host de la cabina de almacenamiento para transferir los datos reflejados del área primaria a la secundaria. Debido a que el mirroring asíncrono está previsto para redes de mayor latencia y menor coste, las conexiones iSCSI (y, por lo tanto, basadas en TCP/IP) son buenas opciones. Cuando se utiliza el mirroring asíncrono en entornos iSCSI, no es necesario dedicar ninguno de los puertos iSCSI front-end de la cabina para usarlos con mirroring asíncrono; esos puertos se comparten tanto para las conexiones de tráfico de reflejos asíncronos como de I/o de host a cabina

@@ -1,0 +1,31 @@
+---
+permalink: sm-mirroring/synchronous-mirroring-activation.html 
+sidebar: sidebar 
+keywords: synchronous, mirror, activation 
+summary: La función Synchronous Mirroring se activa automáticamente cuando se crea el primer par reflejado síncrono en una cabina de almacenamiento. 
+---
+= Activación de mirroring síncrono
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función Synchronous Mirroring se activa automáticamente cuando se crea el primer par reflejado síncrono en una cabina de almacenamiento.
+
+Cuando la función Synchronous Mirroring está activada, System Manager realiza las siguientes acciones:
+
+* Reserva el puerto que tiene el número más alto de la HIC de la controladora para reflejar la transmisión de datos.
++
+Las solicitudes de I/o que se reciben en este puerto son aceptadas únicamente de la controladora remota preferida, propietaria del volumen secundario en la pareja reflejada. (Se permiten las reservas en el volumen primario.)
+
+* Crea dos volúmenes de capacidad reservada, uno para cada controladora, que se utilizan para registrar información de escritura para recuperarse de reinicios de controladoras y otras interrupciones temporales.
++
+La capacidad de cada volumen es 128 MIB. Sin embargo, si los volúmenes se colocan en un pool, se reservarán 4 GIB para cada volumen.
+
+
+
+Con la función Synchronous Mirroring, hay límites para la cantidad de volúmenes que se admiten en una cabina de almacenamiento determinada. Antes de activar Synchronous Mirroring, debe asegurarse de que la cantidad de volúmenes configurados en la cabina de almacenamiento sea menor que el límite admitido. Cuando la función Synchronous Mirroring está activada, los dos volúmenes de capacidad reservados que se crean no se cuentan para el límite del volumen.
+
+Si necesita desactivar la función Mirroring síncrono más adelante, vaya a MENU:almacenamiento[Mirroring síncrono > tareas no comunes > Desactivar].

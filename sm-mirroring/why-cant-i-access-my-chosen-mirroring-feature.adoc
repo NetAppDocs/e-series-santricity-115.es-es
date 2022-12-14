@@ -1,0 +1,24 @@
+---
+permalink: sm-mirroring/why-cant-i-access-my-chosen-mirroring-feature.html 
+sidebar: sidebar 
+keywords: access, mirror, feature 
+summary: Para utilizar la función Asynchronous Mirroring o la función Synchronous Mirroring, SANtricity Unified Manager debe estar ejecutándose en el host local a través de una conexión HTTPS para detectar las cabinas de almacenamiento compatibles con la función de mirroring y para iniciar la operación de mirroring. En Unified Manager, debe seleccionar la cabina de almacenamiento desde la cual desea reflejar datos y, a continuación, hacer clic en Iniciar para abrir SANtricity System Manager. 
+---
+= ¿Por qué no puedo acceder a la función de mirroring seleccionada?
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para utilizar la función Asynchronous Mirroring o la función Synchronous Mirroring, SANtricity Unified Manager debe estar ejecutándose en el host local a través de una conexión HTTPS para detectar las cabinas de almacenamiento compatibles con la función de mirroring y para iniciar la operación de mirroring. En Unified Manager, debe seleccionar la cabina de almacenamiento desde la cual desea reflejar datos y, a continuación, hacer clic en Iniciar para abrir SANtricity System Manager.
+
+Para usar la función de mirroring, compruebe lo siguiente:
+
+* El proxy de servicios web está en ejecución.
+* SANtricity Unified Manager se ejecuta en el host local a través de una conexión HTTPS.
+* SANtricity Unified Manager muestra certificaciones SSL válidas para la cabina de almacenamiento. Es posible aceptar un certificado autofirmado o instalar una certificación de seguridad propia con Unified Manager. Para hacerlo, debe navegar hasta MENU:Certificate[Gestión de certificados].
+* SANtricity System Manager se ejecuta desde un Unified Manager.
+* Debe haber detectado las dos cabinas de almacenamiento entre las que desea reflejar datos. A continuación, desde Unified Manager, debe seleccionar la cabina de almacenamiento del volumen primario y hacer clic en *Iniciar* para abrir la instancia de SANtricity System Manager basada en explorador.
+

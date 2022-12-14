@@ -1,0 +1,35 @@
+---
+permalink: sm-settings/reset-management-certificates.html 
+sidebar: sidebar 
+keywords: reset, management, certificates 
+summary: Es posible revertir los certificados de gestión en la cabina de almacenamiento a su estado autofirmado de fábrica. 
+---
+= Restablezca los certificados de gestión
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible revertir los certificados de gestión en la cabina de almacenamiento a su estado autofirmado de fábrica.
+
+.Antes de empezar
+* Debe iniciar sesión con un perfil de usuario que cuente con permisos de administración de seguridad. De lo contrario, no se mostrarán las funciones de certificación.
+* Los certificados deben haberse importado previamente.
+
+
+.Acerca de esta tarea
+Al restablecer los certificados de gestión en la cabina de almacenamiento, se eliminan los certificados de gestión actuales de cada una de las controladoras. Una vez restablecidos los certificados, se revierten las controladoras al uso de certificados autofirmados.
+
+.Pasos
+. Seleccione MENU:Settings[Certificates].
+. En la ficha *Administración de matrices*, seleccione *Restablecer*.
++
+Se abre el cuadro de diálogo *Confirmar restablecimiento de certificados de gestión*.
+
+. Tipo `reset` En el campo y haga clic en *Restablecer*.
+
+
+.Resultados
+Una vez que se actualiza el explorador, se revierten las controladoras al uso de certificados autofirmados. Como resultado, el sistema solicita a los usuarios que acepten manualmente el certificado autofirmado para sus sesiones.

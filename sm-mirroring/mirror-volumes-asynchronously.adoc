@@ -1,0 +1,14 @@
+---
+permalink: sm-mirroring/mirror-volumes-asynchronously.html 
+sidebar: sidebar 
+keywords: mirror, volumes, asynchronously 
+summary: 'Con la función Asynchronous Mirroring, un volumen puede tener dos copias físicas, lo que facilita la disponibilidad de datos y minimiza el tiempo de inactividad. Cada relación de mirroring asíncrono implica un volumen en un rol primario y otro (en otra cabina de almacenamiento) en un rol secundario.' 
+---
+= Reflejar volúmenes de manera asíncrona
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Con la función Asynchronous Mirroring, un volumen puede tener dos copias físicas, lo que facilita la disponibilidad de datos y minimiza el tiempo de inactividad. Cada relación de mirroring asíncrono implica un volumen en un rol primario y otro (en otra cabina de almacenamiento) en un rol secundario.

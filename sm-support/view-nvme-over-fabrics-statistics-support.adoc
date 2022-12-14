@@ -1,0 +1,35 @@
+---
+permalink: sm-support/view-nvme-over-fabrics-statistics-support.html 
+sidebar: sidebar 
+keywords: view, nvme, fabrics, statistics 
+summary: Es posible ver datos acerca de las conexiones NVMe over Fabrics a la cabina de almacenamiento. 
+---
+= Ver estadísticas de NVMe over Fabrics
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible ver datos acerca de las conexiones NVMe over Fabrics a la cabina de almacenamiento.
+
+.Acerca de esta tarea
+En System Manager, se muestran los siguientes tipos de estadísticas de NVMe over Fabrics. Todas las estadísticas son de solo lectura y no pueden configurarse.
+
+* *Estadísticas del subsistema NVMe* -- se muestran estadísticas para la controladora NVMe, que incluyen tiempos de espera y fallos de conexión.
+* *Estadísticas de la interfaz RDMA* -- proporciona estadísticas para la interfaz RDMA, incluyendo información de paquetes recibidos y transmitidos.
+
+
+Es posible ver cada una de las estadísticas como estadísticas sin configurar o estadísticas de base. Las estadísticas sin configurar son todas las estadísticas recogidas desde que se iniciaron las controladoras. Las estadísticas de base son las estadísticas de un momento específico que se recogen desde el establecimiento de la hora de la línea de base.
+
+Es posible acceder a estadísticas de NVMe over Fabrics desde las páginas sistema (MENU:Settings[System]) o Soporte. Estas instrucciones describen cómo acceder a las estadísticas desde la página Soporte.
+
+.Pasos
+. Seleccione menú:ficha Soporte[Centro de soporte > Diagnóstico].
+. Seleccione *Ver estadísticas de NVMe over Fabrics*.
+. Para establecer la línea de base, haga clic en *establecer nueva línea de base*.
++
+La configuración de la línea de base establece un nuevo punto de partida para la recogida de estadísticas. Se usa la misma línea de base para todas las estadísticas de NVMe.
+
+

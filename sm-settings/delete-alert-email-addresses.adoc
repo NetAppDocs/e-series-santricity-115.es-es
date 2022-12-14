@@ -1,0 +1,32 @@
+---
+permalink: sm-settings/delete-alert-email-addresses.html 
+sidebar: sidebar 
+keywords: delete, email, addresses, alerts 
+summary: Es posible eliminar las direcciones de correo electrónico de los destinatarios que recibieron alertas por correo electrónico. 
+---
+= Eliminar direcciones de correo electrónico para alertas
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible eliminar las direcciones de correo electrónico de los destinatarios que recibieron alertas por correo electrónico.
+
+.Pasos
+. Seleccione MENU:Settings[Alerts].
+. Seleccione la ficha *correo electrónico*.
+. En la tabla *Dirección de correo electrónico*, seleccione la dirección de correo electrónico que desea eliminar.
++
+El botón *Eliminar* de la parte superior derecha de la tabla está disponible para su selección.
+
+. Haga clic en *Eliminar*.
++
+Se abre el cuadro de diálogo *Confirmar eliminación de correo electrónico*.
+
+. Confirme la operación y haga clic en *Eliminar*.
+
+
+.Resultado
+Ya no se enviarán alertas a esta dirección de correo electrónico.

@@ -1,0 +1,52 @@
+---
+permalink: sm-settings/step-2-import-certificates-for-key-management-server.html 
+sidebar: sidebar 
+keywords: import, key, management, server, certificates 
+summary: 'Para la gestión de claves externas, debe importar certificados para la autenticación entre la cabina de almacenamiento y el servidor de gestión de claves, de forma tal que exista confianza mutua entre las dos entidades. Existen dos tipos de certificados: El certificado de cliente valida a las controladoras, mientras que el certificado de servidor de gestión de claves valida al servidor.' 
+---
+= Importe los certificados del servidor de gestión de claves
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para la gestión de claves externas, debe importar certificados para la autenticación entre la cabina de almacenamiento y el servidor de gestión de claves, de forma tal que exista confianza mutua entre las dos entidades. Existen dos tipos de certificados: El certificado de cliente valida a las controladoras, mientras que el certificado de servidor de gestión de claves valida al servidor.
+
+.Antes de empezar
+* Debe iniciar sesión con un perfil de usuario que cuente con permisos de administración de seguridad. De lo contrario, no se mostrarán las funciones de certificación.
+* Hay un certificado de cliente disponible para la cabina de almacenamiento.
++
+[NOTE]
+====
+Un certificado de cliente valida las controladoras de la cabina de almacenamiento para que el servidor de gestión de claves pueda confiar en sus direcciones IP. Para obtener un certificado de cliente, debe completar una CSR para la cabina de almacenamiento y luego cargarlo al servidor de gestión de claves. Desde el servidor, genere un certificado de cliente.
+
+====
+* El certificado de servidor de gestión de claves está disponible.
++
+[NOTE]
+====
+Un certificado de servidor de gestión de claves valida el servidor para que la cabina de almacenamiento pueda confiar en su dirección IP. Para obtener un certificado de servidor de gestión de claves, debe generarlo en el servidor de gestión de claves.
+
+====
+
+
+.Acerca de esta tarea
+En esta tarea, se describe cómo cargar archivos de certificado para la autenticación entre las controladoras de la cabina de almacenamiento y el servidor de gestión de claves.
+
+.Pasos
+. Seleccione MENU:Settings[Certificates].
+. En la ficha *Gestión de claves*, seleccione *Importar*.
++
+Se abre un cuadro de diálogo para importar los archivos de certificado.
+
+. Haga clic en los botones *examinar* para seleccionar los archivos.
++
+Se muestran los nombres de los archivos en el cuadro de diálogo.
+
+. Haga clic en *Importar*.
++
+Los archivos se cargan y validan.
+
+

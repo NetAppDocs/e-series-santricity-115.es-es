@@ -1,0 +1,30 @@
+---
+permalink: sm-settings/edit-key-management-server-settings.html 
+sidebar: sidebar 
+keywords: edit, key, management, server, settings 
+summary: Si configuró la gestión de claves externas, es posible ver y editar los ajustes del servidor de gestión de claves en cualquier momento. 
+---
+= Editar configuración del servidor de gestión de claves
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si configuró la gestión de claves externas, es posible ver y editar los ajustes del servidor de gestión de claves en cualquier momento.
+
+.Antes de empezar
+Debe configurarse la gestión de claves externas.
+
+.Pasos
+. Seleccione MENU:Settings[System].
+. En *Gestión de claves de seguridad*, seleccione *Ver/editar configuración del servidor de administración de claves*.
+. Edite la información en los siguientes campos:
++
+** Dirección del servidor de gestión de claves: Introduzca el nombre de dominio completo o la dirección IP (IPv4 o IPv6) del servidor que se usaron para la gestión de claves.
+** KMIP Port number -- introduzca el número de puerto utilizado para las comunicaciones mediante el protocolo de interoperabilidad de gestión de claves (KMIP).
+
+
+. Haga clic en *Guardar*.
+

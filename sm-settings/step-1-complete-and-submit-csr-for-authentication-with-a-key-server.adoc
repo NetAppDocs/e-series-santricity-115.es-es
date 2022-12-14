@@ -1,0 +1,45 @@
+---
+permalink: sm-settings/step-1-complete-and-submit-csr-for-authentication-with-a-key-server.html 
+sidebar: sidebar 
+keywords: complete, ca certificate, signing, request, csr, key server 
+summary: 'Para recibir un certificado de la entidad de certificación (CA) para un servidor de gestión de claves, primero se debe crear un archivo de solicitud de firma de certificación (CSR).' 
+---
+= Completar una solicitud de firma de certificación (CSR) de CA para un servidor de claves
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para recibir un certificado de la entidad de certificación (CA) para un servidor de gestión de claves, primero se debe crear un archivo de solicitud de firma de certificación (CSR).
+
+.Antes de empezar
+* Debe iniciar sesión con un perfil de usuario que cuente con permisos de administración de seguridad. De lo contrario, no se mostrarán las funciones de certificación.
+
+
+.Acerca de esta tarea
+En esta tarea, se describe cómo generar los archivos .CSR (solicitudes de firma de certificación) que se envían a una CA para recibir certificados firmados de un servidor de gestión de claves. Durante esta tarea, debe brindar información acerca de su organización.
+
+.Pasos
+. Seleccione MENU:Settings[Certificates].
+. En la ficha *Gestión de claves*, seleccione *completar CSR*.
+. Introduzca la siguiente información:
++
+** *Nombre común* -- un nombre que identifica a esta CSR, como el nombre de la matriz de almacenamiento, que se mostrará en los archivos de certificado.
+** *Organización* -- el nombre completo y legal de su empresa u organización. Incluya sufijos, como Inc. O Corp
+** *Unidad organizativa (opcional)* -- la división de su organización que maneja el certificado.
+** *Ciudad/localidad* -- la ciudad o localidad donde está ubicada su organización.
+** *Estado/Región (opcional)* -- el estado o región donde está ubicada su organización.
+** *Código ISO de país* -- el código ISO (Organización Internacional de Normalización) de dos dígitos, como US, en el que se encuentra su organización.
+
+
+. Haga clic en *Descargar*.
++
+Se guarda un archivo .CSR en el sistema local.
+
+. Envíe el o los archivos .CSR a la CA.
+
+
+.Después de terminar
+Cuando obtenga los certificados de cliente y servidor del servidor de gestión de claves, impórtelos para su autenticación con las controladoras de la cabina de almacenamiento.

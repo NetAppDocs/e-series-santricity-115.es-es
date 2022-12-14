@@ -1,0 +1,47 @@
+---
+permalink: sm-settings/configure-nvme-over-infiniband-ports-hardware.html 
+sidebar: sidebar 
+keywords: configure, nvme, infiniband, ports 
+summary: Si la controladora incluye una conexión NVMe over InfiniBand, los ajustes del puerto NVMe se pueden configurar desde la página hardware o la página sistema. 
+---
+= Configure los puertos NVMe over InfiniBand
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si la controladora incluye una conexión NVMe over InfiniBand, los ajustes del puerto NVMe se pueden configurar desde la página hardware o la página sistema.
+
+.Antes de empezar
+* La controladora debe incluir un puerto de host NVMe over InfiniBand; de lo contrario, los ajustes de NVMe over InfiniBand no estarán disponibles en System Manager.
+* Se debe conocer la dirección IP de la conexión de host.
+
+
+.Acerca de esta tarea
+Es posible acceder a la configuración de NVMe over InfiniBand desde la página *hardware* o desde el menú:Configuración[sistema]. En esta tarea se describe cómo configurar los puertos desde la página *hardware*.
+
+[NOTE]
+====
+La configuración y las funciones de NVMe over InfiniBand aparecen solamente si la controladora de la cabina de almacenamiento contiene un puerto NVMe over InfiniBand.
+
+====
+.Pasos
+. Seleccione *hardware*.
+. Si el gráfico muestra las unidades, haga clic en *Mostrar parte posterior de la bandeja*.
++
+El gráfico cambia y muestra las controladoras en lugar de las unidades.
+
+. Haga clic en la controladora que tenga el puerto NVMe over InfiniBand que desea configurar.
++
+Aparece el menú contextual de la controladora.
+
+. Seleccione *Configurar puertos NVMe over InfiniBand*.
++
+Se abre el cuadro de diálogo *Configurar puertos NVMe over InfiniBand*.
+
+. En el menú desplegable, seleccione el puerto HIC que desea configurar y después introduzca la dirección IP del host.
+. Haga clic en *Configurar*.
+. Una vez terminada la configuración, haga clic en *Sí* para reiniciar el puerto NVMe over InfiniBand.
+

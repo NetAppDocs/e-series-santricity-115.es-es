@@ -1,0 +1,22 @@
+---
+permalink: sm-mirroring/synchronous-mirroring-what-do-i-need-to-know-before-creating-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: synchronous, mirroring, create, mirrored path 
+summary: Antes de crear una pareja reflejada, compruebe que el entorno cumpla las siguientes directrices. 
+---
+= Mirroring síncrono: ¿Qué debo saber antes de crear una pareja reflejada?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de crear una pareja reflejada, compruebe que el entorno cumpla las siguientes directrices.
+
+* Debe tener suficiente capacidad libre en la cabina de almacenamiento remota para crear un volumen secundario mayor o igual que el volumen primario que desea reflejar.
+* Debe tener dos cabinas de almacenamiento.
+* Cada cabina de almacenamiento debe tener dos controladoras.
+* Debe conocer la contraseña de las cabinas de almacenamiento remota y local.
+* Las cabinas de almacenamiento local y remota deben estar conectadas a través de una estructura Fibre Channel.
+* Debe haber detectado las dos cabinas de almacenamiento entre las que desea reflejar datos. A continuación, desde Unified Manager, debe seleccionar la cabina de almacenamiento del volumen primario y hacer clic en Iniciar para abrir la instancia de SANtricity System Manager basada en explorador.
+

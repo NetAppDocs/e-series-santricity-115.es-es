@@ -1,0 +1,47 @@
+---
+permalink: sm-settings/configure-iser-over-infiniband-ports-hardware.html 
+sidebar: sidebar 
+keywords: configure, iser, infiniband, ports 
+summary: Si la controladora tiene un puerto Iser over InfiniBand, se puede configurar la conexión de red al host. Las opciones de configuración están disponibles en las páginas hardware o sistema. 
+---
+= Configure los puertos Iser over InfiniBand
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si la controladora tiene un puerto Iser over InfiniBand, se puede configurar la conexión de red al host. Las opciones de configuración están disponibles en las páginas hardware o sistema.
+
+.Antes de empezar
+* La controladora debe tener un puerto Iser over InfiniBand; de lo contrario, las opciones de Iser over InfiniBand no estarán disponibles en System Manager.
+* Se debe conocer la dirección IP de la conexión de host.
+
+
+.Acerca de esta tarea
+Es posible acceder a la configuración de Iser over InfiniBand desde la página *hardware* o desde el menú:Configuración[sistema]. En esta tarea se describe cómo configurar los puertos desde la página *hardware*.
+
+[NOTE]
+====
+La configuración y las funciones de Iser over InfiniBand aparecen solamente si la controladora de la cabina de almacenamiento contiene un puerto Iser over InfiniBand.
+
+====
+.Pasos
+. Seleccione *hardware*.
+. Si el gráfico muestra las unidades, haga clic en *Mostrar parte posterior de la bandeja*.
++
+El gráfico cambia y muestra las controladoras en lugar de las unidades.
+
+. Haga clic en la controladora que tenga el puerto Iser over InfiniBand que desea configurar.
++
+Aparece el menú contextual de la controladora.
+
+. Seleccione *Configurar puertos Iser over InfiniBand*.
++
+Se muestra el cuadro de diálogo Configurar puertos Iser over InfiniBand.
+
+. En el menú desplegable, seleccione el puerto HIC que desea configurar y después introduzca la dirección IP del host.
+. Haga clic en *Configurar*.
+. Complete la configuración y, a continuación, restablezca el puerto Iser over InfiniBand haciendo clic en *Sí*.
+

@@ -1,0 +1,131 @@
+---
+permalink: sm-storage/how-do-i-know-which-host-operating-system-type-is-correct.html 
+sidebar: sidebar 
+keywords: host, operate, system type, correct 
+summary: 'El campo Tipo de sistema operativo de host contiene el sistema operativo del host. Es posible seleccionar el tipo de host recomendado en la lista desplegable, o bien permitir que el agente de contexto de host (HCA) configure el host y el tipo de sistema operativo de host adecuado.' 
+---
+= ¿Cómo saber cuál es el tipo de sistema operativo de host correcto?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El campo Tipo de sistema operativo de host contiene el sistema operativo del host. Es posible seleccionar el tipo de host recomendado en la lista desplegable, o bien permitir que el agente de contexto de host (HCA) configure el host y el tipo de sistema operativo de host adecuado.
+
+[cols="2*"]
+|===
+| Tipo de sistema operativo de host | Sistema operativo (SO) y controlador multivía 
+
+
+ a| 
+AIX MPIO
+ a| 
+El sistema operativo Advanced Interactive Executive (AIX) y el controlador MPIO nativo
+
+
+
+ a| 
+AVT_4M
+ a| 
+Silicon Graphics, Inc (SGI); consulte la documentación de instalación de SGI para obtener más información
+
+
+
+ a| 
+Predeterminado de fábrica
+ a| 
+Esta opción se reserva para la primera vez que se inicia la cabina de almacenamiento, y debe cambiarse para que coincida con el sistema operativo del host y el controlador multivía que se utiliza para el host en particular
+
+
+
+ a| 
+HP-UX
+ a| 
+El sistema operativo HP-UX con el controlador multivía nativo
+
+
+
+ a| 
+Linux (ATTO)
+ a| 
+El sistema operativo Linux y el controlador de ATTO Technology, Inc. (Deben usarse HBA de ATTO FC).
+
+
+
+ a| 
+Linux (DM-MP)
+ a| 
+El sistema operativo Linux y el controlador DM-MP nativo
+
+
+
+ a| 
+Linux (PathManager)
+ a| 
+El sistema operativo Linux y el controlador multivía propiedad de SGI; consulte la documentación de instalación de SGI para obtener más información
+
+
+
+ a| 
+So Mac
+ a| 
+El sistema operativo Mac OS y el controlador ATTO Technology, Inc
+
+
+
+ a| 
+ONTAP
+ a| 
+FlexArray
+
+
+
+ a| 
+Solaris (versión 11 o posterior)
+ a| 
+El sistema operativo Solaris 11 o posterior y el controlador MPxIO nativo
+
+
+
+ a| 
+Solaris (versión 10 o anterior)
+ a| 
+El sistema operativo Solaris 10 o anterior y el controlador MPxIO nativo
+
+
+
+ a| 
+SVC
+ a| 
+La controladora de volúmenes SAN IBM
+
+
+
+ a| 
+VMware
+ a| 
+El sistema operativo ESXi
+
+
+
+ a| 
+Windows o Windows almacenado en clúster
+ a| 
+El sistema operativo Windows Server y el controlador Windows MPIO con DSM
+
+
+
+ a| 
+Windows (ATTO)
+ a| 
+El sistema operativo Windows y el controlador ATTO Technology, Inc
+
+|===
+Después de instalar el HCA y de conectar el almacenamiento al host, el HCA envía la topología del host a la controladoras de almacenamiento a través de la ruta de I/O. Según la topología del host, las controladoras de almacenamiento definen automáticamente el host y los puertos de host asociados para luego establecer el tipo de host.
+
+[NOTE]
+====
+Si el HCA no selecciona el tipo de host recomendado, debe configurar manualmente el tipo de host en System Manager.
+
+====

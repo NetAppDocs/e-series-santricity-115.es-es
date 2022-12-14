@@ -1,0 +1,20 @@
+---
+permalink: sm-storage/what-is-data-assurance.html 
+sidebar: sidebar 
+keywords: data, assurance 
+summary: 'Data Assurance (DA) busca y corrige los errores que podrían presentarse cuando se comunican datos entre un host y una cabina de almacenamiento. Las funcionalidades DE DA se presentan a nivel del pool y grupo de volúmenes de System Manager.' 
+---
+= ¿Qué es la garantía de datos?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data Assurance (DA) busca y corrige los errores que podrían presentarse cuando se comunican datos entre un host y una cabina de almacenamiento. Las funcionalidades DE DA se presentan a nivel del pool y grupo de volúmenes de System Manager.
+
+La función Data Assurance (DA) mejora la integridad de los datos en todo el sistema de almacenamiento. DA permite a la cabina de almacenamiento comprobar si se producen errores cuando se transfieren datos entre hosts y unidades. Si esta función está habilitada, la cabina de almacenamiento añade códigos de comprobación de errores (también conocidos como comprobaciones de redundancia cíclicas o CRC) a cada bloque de datos del volumen. Una vez movido un bloque de datos, la cabina de almacenamiento utiliza estos códigos de CRC para determinar si se produjeron errores durante la transmisión. Los datos posiblemente dañados no se escriben en el disco ni se vuelven a transferir al host.
+
+Si desea usar la función DA, seleccione un pool o grupo de volúmenes compatible con DA al crear un volumen nuevo (busque *Sí* junto a DA en la tabla de candidatos de pools y grupos de volúmenes).
+
+Asegúrese de asignar estos volúmenes con la función DA habilitada a un host que utilice una interfaz de I/o compatible con DA. Las interfaces de I/o compatibles con DA son Fibre Channel, SAS, iSCSI over TCP/IP e Iser over InfiniBand (extensiones iSCSI para RDMA/IB). SRP over InfiniBand no es compatible con DA.

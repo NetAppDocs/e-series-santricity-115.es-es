@@ -1,0 +1,28 @@
+---
+permalink: sm-settings/how-certificates-work-sam.html 
+sidebar: sidebar 
+keywords: ca certificates, csr files 
+summary: 'Una entidad de certificación (CA) es una entidad de confianza que emite documentos electrónicos, denominados certificados digitales, para la seguridad de Internet. Estos certificados identifican a los propietarios de sitios web y, de esta manera, permiten conexiones seguras entre clientes y servidores.' 
+---
+= Cómo funcionan los certificados de CA
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una entidad de certificación (CA) es una entidad de confianza que emite documentos electrónicos, denominados certificados digitales, para la seguridad de Internet. Estos certificados identifican a los propietarios de sitios web y, de esta manera, permiten conexiones seguras entre clientes y servidores.
+
+Cuando se abre un explorador y se intenta una conexión con System Manager a través del puerto de gestión de la controladora, el explorador intenta verificar si la controladora de la cabina de almacenamiento es un origen confiable. Si el explorador no puede localizar un certificado digital para la controladora, alerta que el certificado no está firmado por una autoridad reconocida y pregunta al usuario si desea continuar. Si ya no desea ver esta alerta, debe obtener un certificado digital firmado de una CA.
+
+Si usa un servidor de gestión de claves externo con la función Drive Security, también puede crear certificados para la autenticación entre ese servidor y las controladoras, o puede aceptar los certificados autofirmados de la cabina de almacenamiento.
+
+Debe seguir estos pasos para usar un certificado digital de una autoridad de confianza:
+
+. Vaya al menú:Configuración[certificados]. Su inicio de sesión de usuario debe incluir permisos de administración de seguridad; de lo contrario, *certificados* no aparecerá en la página.
+. Cree una solicitud de firma de certificación (CSR) para cada controladora o para un servidor de gestión de claves.
+. Envíe el o los archivos .CSR a una CA y espere que la autoridad envíe los certificados.
+. Importe los certificados de confianza (intermedio y raíz) de la CA. Estos certificados establecen un punto de confianza para una jerarquía de CA.
+. Importe los certificados de gestión firmados para cada controladora o el servidor de gestión de claves.
+

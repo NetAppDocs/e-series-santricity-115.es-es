@@ -1,0 +1,160 @@
+---
+permalink: sm-storage/create-asynchronous-mirrored-volume.html 
+sidebar: sidebar 
+keywords: create, asynchronous, mirrored, volume 
+summary: Se refleja un volumen de manera asíncrona para que los datos de la cabina de almacenamiento remota sean una copia coherente de un momento específico de los datos de la cabina de almacenamiento local. Para ello, cree un grupo de coherencia de reflejos para establecer la relación de mirroring entre las dos cabinas de almacenamiento y, luego, seleccione el volumen primario y el secundario que desea usar en el reflejo. 
+---
+= Cree un volumen reflejado asíncrono
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se refleja un volumen de manera asíncrona para que los datos de la cabina de almacenamiento remota sean una copia coherente de un momento específico de los datos de la cabina de almacenamiento local. Para ello, cree un grupo de coherencia de reflejos para establecer la relación de mirroring entre las dos cabinas de almacenamiento y, luego, seleccione el volumen primario y el secundario que desea usar en el reflejo.
+
+.Antes de empezar
+* Deben configurarse las siguientes condiciones:
++
+** El proxy de servicios web está en ejecución.
+** SANtricity Unified Manager se ejecuta en el host local a través de una conexión HTTPS.
+** Cada controladora en la cabina primaria y la cabina secundaria debe tener un puerto Ethernet de gestión configurado y debe estar conectada a la red.
+** SANtricity Unified Manager muestra certificaciones SSL válidas para la cabina de almacenamiento. Es posible aceptar un certificado autofirmado o instalar una certificación de seguridad propia con Unified Manager. Para hacerlo, debe navegar hasta MENU:Certificate[Gestión de certificados].
+** SANtricity System Manager se ejecuta desde un Unified Manager.
+** Debe haber detectado las dos cabinas de almacenamiento entre las que desea reflejar datos. A continuación, desde Unified Manager, debe seleccionar la cabina de almacenamiento del volumen primario y hacer clic en *Iniciar* para abrir la instancia de SANtricity System Manager basada en explorador.
+
+
+* Debe conocer la contraseña de las cabinas de almacenamiento remota y local.
+* Las cabinas de almacenamiento local y remota deben estar conectadas a través de una interfaz de estructura Fibre Channel o iSCSI.
+
+
+.Acerca de esta tarea
+El proceso de reflejar un volumen de manera asíncrona es un procedimiento de varios pasos:
+
+* <<Paso 1: Cree un grupo de coherencia de reflejos o seleccione uno existente>>
+* <<Paso 2: Seleccione el volumen primario>>
+* <<Paso 3: Seleccione el volumen secundario>>
+
+
+Un volumen puede participar solo en una relación de reflejo.
+
+
+
+== Paso 1: Cree un grupo de coherencia de reflejos o seleccione uno existente
+
+[role="lead"]
+Se crea un grupo de coherencia de reflejos o se selecciona uno existente para establecer la relación de mirroring entre la cabina de almacenamiento local y la remota.
+
+.Acerca de esta tarea
+La cantidad de relaciones de grupos de coherencia de reflejos y relaciones de parejas reflejadas que puede crear depende del hardware en la cabina de almacenamiento.
+
+.Pasos
+. Debe realizar una de las siguientes acciones para acceder a la secuencia de mirroring asíncrono:
++
+** Seleccione menu:almacenamiento[Mirroring asíncrono > Crear pareja reflejada].
+** Seleccione menu:almacenamiento[volúmenes > Servicios de copia > reflejar un volumen de forma asíncrona].
+
+
+. Seleccione un grupo de coherencia de reflejos existente o cree uno nuevo.
++
+Para crear un grupo de coherencia de reflejos nuevo, haga lo siguiente:
+
++
+.. Introduzca un nombre único que describa mejor los datos de los volúmenes que se reflejarán entre las dos cabinas de almacenamiento (por ejemplo, datos de I y D).
+.. Seleccione la cabina de almacenamiento remota en la que desea establecer una relación de reflejo con la cabina de almacenamiento local.
++
+[NOTE]
+====
+Si la cabina de almacenamiento remota está protegida con contraseña, el sistema solicita la contraseña.
+
+====
+.. Elija si desea volver a sincronizar las parejas reflejadas de la cabina de almacenamiento remota en forma manual o automática.
++
+*** *Manual* -- debe actualizar explícitamente la imagen secundaria de un momento específico por medio de la opción de menú resincronización manual. Seleccione esta opción para iniciar manualmente la resincronización de todas las parejas reflejadas asíncronas del grupo de reflejos asíncronos.
+*** *Automático* -- en la lista desplegable, especifique el tiempo desde el comienzo de la actualización anterior hasta el comienzo de la siguiente actualización. Si desea cambiar el intervalo de sincronización automática desde la opción predeterminada cada 10 minutos, edite el valor de intervalo, que está definido en minutos.
+
+
+.. Haga clic en *Crear*.
++
+Primero, System Manager crea el grupo de coherencia de reflejos en la cabina de almacenamiento local y, luego, crea el grupo de coherencia de reflejos en la cabina de almacenamiento remota.
+
++
+[NOTE]
+====
+Si System Manager crea correctamente el grupo de coherencia de reflejos en la cabina de almacenamiento local, pero no logra crearlo en la cabina de almacenamiento remota, elimina automáticamente el grupo de coherencia de reflejos de la cabina de almacenamiento local. Si se produce un error mientras System Manager intenta eliminar el grupo de coherencia de reflejos, es necesario eliminarlo en forma manual.
+
+====
+
+
+. Seleccione *Siguiente* y vaya a. <<Paso 2: Seleccione el volumen primario>>.
+
+
+
+
+== Paso 2: Seleccione el volumen primario
+
+[role="lead"]
+Se debe seleccionar el volumen primario que se desea usar en la relación de reflejo y asignar la capacidad reservada. Cualquier volumen que se añada al grupo de coherencia de reflejos de la cabina de almacenamiento local tendrá el rol primario en la relación de reflejo.
+
+.Pasos
+. Seleccione un volumen existente que desea usar como volumen primario del reflejo y, a continuación, haga clic en *Siguiente* para asignar la capacidad reservada.
+. Asigne la capacidad reservada para el volumen primario que seleccionó. Realice una de las siguientes acciones:
++
+** *Acepte la configuración predeterminada* -- utilice esta opción recomendada para asignar la capacidad reservada para el volumen primario con la configuración predeterminada.
+** *Asigne su propia configuración de capacidad reservada para satisfacer sus necesidades de almacenamiento de datos relacionadas con la duplicación asíncrona* -- asigne la capacidad reservada usando las siguientes directrices.
++
+*** La configuración predeterminada para la capacidad reservada es del 20 % del volumen base y, por lo general, esta capacidad es suficiente.
+*** La capacidad necesaria varía, según la frecuencia y el tamaño de las escrituras de I/o en el volumen primario y el tiempo que se requiere conservar la capacidad.
+*** En general, elija una capacidad mayor para la capacidad reservada si se presentan una o ambas de estas condiciones:
++
+**** Se pretende conservar la pareja reflejada por un periodo prolongado.
+**** Un gran porcentaje de bloques de datos cambiará en el volumen primario debido a una gran actividad de I/O. Utilice datos históricos de rendimiento u otra utilidad del sistema operativo para determinar la actividad de I/o típica del volumen primario.
+
+
+
+
+
+
+. Seleccione *Siguiente* y vaya a. <<Paso 3: Seleccione el volumen secundario>>.
+
+
+
+
+== Paso 3: Seleccione el volumen secundario
+
+[role="lead"]
+Se debe seleccionar el volumen secundario que se desea usar en la relación de reflejo y asignar la capacidad reservada. Cualquier volumen que se añada al grupo de coherencia de reflejos de la cabina de almacenamiento remota tendrá el rol secundario en la relación de reflejo.
+
+.Acerca de esta tarea
+Si selecciona un volumen secundario en la cabina de almacenamiento remota, el sistema muestra una lista de todos los volúmenes aptos para esa pareja reflejada. Si algún volumen no es apto para el uso, no se muestra en esa lista.
+
+.Pasos
+. Seleccione un volumen existente que desea usar como volumen secundario de la pareja reflejada y, luego, haga clic en *Siguiente* para asignar la capacidad reservada.
+. Asigne la capacidad reservada para el volumen secundario que seleccionó. Realice una de las siguientes acciones:
++
+** *Acepte la configuración predeterminada* -- utilice esta opción recomendada para asignar la capacidad reservada para el volumen secundario con la configuración predeterminada.
+** *Asigne su propia configuración de capacidad reservada para satisfacer sus necesidades de almacenamiento de datos relacionadas con la duplicación asíncrona* -- asigne la capacidad reservada usando las siguientes directrices.
++
+*** La configuración predeterminada para la capacidad reservada es del 20 % del volumen base y, por lo general, esta capacidad es suficiente.
+*** La capacidad necesaria varía, según la frecuencia y el tamaño de las escrituras de I/o en el volumen primario y el tiempo que se requiere conservar la capacidad.
+*** En general, elija una capacidad mayor para la capacidad reservada si se presentan una o ambas de estas condiciones:
++
+**** Se pretende conservar la pareja reflejada por un periodo prolongado.
+**** Un gran porcentaje de bloques de datos cambiará en el volumen primario debido a una gran actividad de I/O. Utilice datos históricos de rendimiento u otra utilidad del sistema operativo para determinar la actividad de I/o típica del volumen primario.
+
+
+
+
+
+
+. Seleccione *Finalizar* para completar la secuencia de duplicación asíncrona.
+
+
+.Resultados
+System Manager realiza lo siguiente:
+
+* Comienza la sincronización inicial entre la cabina de almacenamiento local y la remota.
+* Si el volumen que se está reflejando es fino, solo los bloques de aprovisionamiento (capacidad asignada en lugar de capacidad notificada) se transfieren al volumen secundario durante la sincronización inicial. Esto reduce la cantidad de datos que se deben transferir para completar la sincronización inicial.
+* Crea la capacidad reservada para la pareja reflejada en la cabina de almacenamiento local y la remota.
+

@@ -1,0 +1,53 @@
+---
+permalink: sm-interface/what-are-the-supported-browsers.html 
+sidebar: sidebar 
+keywords: supported, browsers 
+summary: En System Manager se admiten las siguientes versiones de exploradores. 
+---
+= ¿Qué exploradores son compatibles?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En System Manager se admiten las siguientes versiones de exploradores.
+
+|===
+| Navegador | Versión mínima 
+
+
+ a| 
+Google Chrome
+ a| 
+47
+
+
+
+ a| 
+Internet Explorer de Microsoft
+ a| 
+11
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+EdgeHTML 12
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+31
+
+
+
+ a| 
+Safari
+ a| 
+9
+
+|===

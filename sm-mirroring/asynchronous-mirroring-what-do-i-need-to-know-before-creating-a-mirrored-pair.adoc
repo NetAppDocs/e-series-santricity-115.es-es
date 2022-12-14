@@ -1,0 +1,24 @@
+---
+permalink: sm-mirroring/asynchronous-mirroring-what-do-i-need-to-know-before-creating-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: asynchronous, mirror, create, mirrored pair 
+summary: La cabina de almacenamiento debe contener al menos un grupo de coherencia de reflejos. 
+---
+= Mirroring asíncrono: ¿Qué debo saber antes de crear una pareja reflejada?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La cabina de almacenamiento debe contener al menos un grupo de coherencia de reflejos.
+
+Además, debe asegurarse de lo siguiente:
+
+* Debe tener suficiente capacidad libre en la cabina de almacenamiento remota para crear un volumen secundario mayor o igual que el volumen primario que desea reflejar.
+* Debe tener dos cabinas de almacenamiento.
+* Cada cabina de almacenamiento debe tener dos controladoras.
+* Debe conocer la contraseña de las cabinas de almacenamiento remota y local.
+* Las cabinas de almacenamiento local y remota deben estar conectadas a través de una interfaz de estructura Fibre Channel o iSCSI.
+* Debe tener instalado SANtricity Unified Manager basado en explorador y haber detectado las dos cabinas de almacenamiento entre las que desea reflejar datos. A continuación, desde Unified Manager, debe seleccionar la cabina de almacenamiento del volumen primario y hacer clic en Iniciar para abrir la instancia de SANtricity System Manager basada en explorador.
+

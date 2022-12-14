@@ -1,0 +1,70 @@
+---
+permalink: sm-interface/whats-new-in-sam.html 
+sidebar: sidebar 
+keywords: new, santricity, system manager 
+summary: System Manager incluye las siguientes nuevas funciones. 
+---
+= Novedades en System Manager de SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+System Manager incluye las siguientes nuevas funciones.
+
+
+
+== Nuevas funciones en la versión 11.53
+
+Esta versión incluye solamente mejoras y soluciones menores.
+
+
+
+== Nuevas funciones en la versión 11.52
+
+|===
+| Nueva función | Descripción 
+
+
+ a| 
+Interfaz de host de NVMe over FC
+ a| 
+Ahora puede solicitarse una conexión de host de NVMe over Fibre Channel para los modelos de controladora EF570 o E5700, además del soporte vigente para NVMe over roce y NVMe over InfiniBand. System Manager incluye estadísticas para este nuevo tipo de conexión en menú:Configuración[sistema] en "Detalles de NVMe over Fibre Channel".
+
+|===
+
+
+== Nuevas funciones en la versión 11.51
+
+Esta versión incluye solamente mejoras y soluciones menores.
+
+
+
+== Nuevas funciones en la versión 11.50
+
+|===
+| Nueva función | Descripción 
+
+
+ a| 
+Interfaz NVMe over roce
+ a| 
+Ahora es posible solicitar una conexión de host NVMe over roce para las controladoras E-Series EF570 o E5700. System Manager contiene nuevas funciones para configurar la conexión de red al host (disponibles en la página hardware o en el menú:Configuración[sistema], y funciones para ver datos sobre las conexiones NVMe over roce a la cabina de almacenamiento (disponibles en el menú:Soporte[Centro de soporte] o en el menú:Configuración[sistema].
+
+
+
+ a| 
+Selección manual de unidades para grupos de volúmenes
+ a| 
+Además de la práctica selección automática, se ofrece una nueva opción para seleccionar unidades individuales al crear un grupo de volúmenes. En general, se recomienda utilizar la selección automática de unidades, pero la opción de selección manual de unidades es útil para los entornos con requisitos especiales de ubicación de unidades.
+
+
+
+ a| 
+Unified Manager de SANtricity
+ a| 
+Unified Manager es una aplicación basada en explorador que se instala por separado para detectar y gestionar controladoras serie E2800 y serie E5700. Si bien no es una nueva función de System Manager, esta aplicación ofrece un nuevo marco de trabajo empresarial basado en explorador desde el cual se puede iniciar System Manager para detectar cabinas de almacenamiento. El nuevo Unified Manager se puede descargar del área de descargas de software de Soporte.
+
+|===
